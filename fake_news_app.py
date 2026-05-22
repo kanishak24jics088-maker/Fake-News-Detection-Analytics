@@ -1,9 +1,13 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
+try:
+    import plotly.express as px
+    import plotly.graph_objects as go
+    from plotly.subplots import make_subplots
+except ModuleNotFoundError as e:
+    st.error(f"Missing dependency: {e.name}. Install it with `pip install {e.name}` and restart the app.")
+    st.stop()
 import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 from wordcloud import WordCloud
